@@ -1,0 +1,13 @@
+version: '2.3'
+services:
+  couchdb:
+        container_name: medicdb
+        image: couchdb:2.1.1
+        volumes:
+                - ../couchdb/local.d:/opt/couchdb/etc/local.d
+                - ../couchdb/data:/opt/couchdb/data
+        ports:
+                - "5984:5984"
+        environment:
+                - COUCHDB_USER=admin
+                - COUCHDB_PASSWORD=pass
